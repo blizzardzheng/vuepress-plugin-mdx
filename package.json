@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "sunflower",
+  "version": "1.0.0",
+  "description": "VuePress Site in Basement",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.alipay-inc.com:fetest/fe_hook_test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "next",
+    "@vuepress/plugin-back-to-top": "next",
+    "@vuepress/plugin-medium-zoom": "next",
+    "@alipay/vuepress-plugin-basement": "latest"
+  }
+}
