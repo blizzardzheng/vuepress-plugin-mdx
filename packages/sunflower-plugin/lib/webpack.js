@@ -7,7 +7,7 @@ const root = fs.realpathSync(process.cwd());
 
 function chainWebpack(config, isServer) {
   config.resolve.alias.set('@docz-mdx', __dirname);
-  if (!isServer) {
+  // if (!isServer) {
     config.node.set('global', true);
     config.module.rule('jsx-transform')
     .test(/\.jsx/)
@@ -57,7 +57,7 @@ function chainWebpack(config, isServer) {
         ],
       })
     .end()
-  }
+  // }
 }
 
 module.exports = chainWebpack;
