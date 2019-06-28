@@ -15,9 +15,25 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "next",
+    "@alipay/vuepress-plugin-basement": "latest",
+    "@babel/preset-react": "^7.0.0",
+    "@mdx-js/loader": "^1.0.0-rc.4",
     "@vuepress/plugin-back-to-top": "next",
     "@vuepress/plugin-medium-zoom": "next",
-    "@alipay/vuepress-plugin-basement": "latest"
+    "vuepress": "next"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "antd": "^3.19.7",
+    "array-sort": "^1.0.0",
+    "babel-plugin-import": "^1.12.0",
+    "docz": "^1.2.0",
+    "docz-theme-antd": "^1.1.1",
+    "docz-theme-default": "^1.2.0",
+    "gatsby-theme-mdx": "^1.0.21",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "readable-stream": "2.0.2",
+    "rehype-slug": "^2.0.3"
   }
 }

@@ -1,5 +1,12 @@
-const { join } = require('path')
+const { join, resolve } = require('path')
 const { description } = require('../../package')
+const fs = require('fs');
+const util = require('util')
+const remarkDocz = require('remark-docz');
+const rehypeDocz = require('rehype-docz');
+const slug = require('rehype-slug');
+const frontmatter = require('remark-frontmatter');
+const root = fs.realpathSync(process.cwd());
 
 module.exports = {
   /**
@@ -9,7 +16,7 @@ module.exports = {
   /**
    * 网站的标题，ref：https://v1.vuepress.vuejs.org/zh/config/#title
    */
-  title: 'Basement VuePress',
+  title: 'sunflower',
   /**
    * 网站的描述，ref：https://v1.vuepress.vuejs.org/zh/config/#description
    */
@@ -37,8 +44,8 @@ module.exports = {
       link: '/guide/',
     },
     {
-      text: '配置',
-      link: '/config/'
+      text: '一站式流程组件',
+      link: '/yizhanshi/'
     },
   ],
 
@@ -57,8 +64,8 @@ module.exports = {
         link: '/guide/',
       },
       {
-        text: '配置',
-        link: '/config/'
+        text: '一站式组件池',
+        link: '/yizhanshi/'
       }
     ],
     sidebar: {
@@ -72,6 +79,15 @@ module.exports = {
           ]
         }
       ],
+      '/yizhanshi/': [
+        {
+          title: '指南',
+          collapsable: false,
+          children: [
+            'test'
+          ]
+        }
+      ]
     }
   },
 
@@ -81,6 +97,64 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    '@alipay/vuepress-plugin-basement'
-  ]
+    require('../../packages/sunflower-plugin'),
+    '@alipay/vuepress-plugin-basement',
+  ],
+  configureWebpack(config) {
+    const configStr = JSON.stringify(config, null, 4);
+    fs.writeFileSync(resolve(__dirname, '../webpack'), (configStr), 'utf-8');
+  },
+  // chainWebpack(config, isServer) {
+  //     if (!isServer) {
+  //       config.node.set('global', true);
+  //       config.module.rule('jsx-transform')
+  //       .test(/\.jsx/)
+  //       .use('babel2')
+  //         .loader('babel-loader')
+  //         .options({
+  //           "babelrc": false,
+  //           "configFile": false,
+  //           presets: [
+  //             [
+  //               "@babel/preset-react"
+  //             ]
+  //           ]
+  //         })
+  //         .end();
+  //       config.module.rule('mdx-transform')
+  //       .test(/\.mdx/)
+  //       .use('babel2')
+  //       .loader('babel-loader')
+  //       .options({
+  //         "babelrc": false,
+  //         "configFile": false,
+  //         presets: [
+  //           [
+  //             "@babel/preset-react"
+  //           ]
+  //         ],
+  //         "plugins": [
+  //           ["import", {
+  //             "libraryName": "antd",
+  //             "libraryDirectory": "es",
+  //             "style": "css" // `style: true` 会加载 less 文件
+  //           }]
+  //         ]
+  //       })
+  //       .end()
+  //       .use('mdx')
+  //         .loader('@mdx-js/loader')
+  //         .options({
+  //           remarkPlugins: [
+  //             [frontmatter, { type: 'yaml', marker: '-' }],
+  //             remarkDocz,
+  //           ],
+  //           rehypePlugins: [
+  //             [rehypeDocz, { root, useCodeSandbox: true }],
+  //             slug,
+  //           ],
+  //         })
+  //         .end()
+  //     }
+  // }
 }
