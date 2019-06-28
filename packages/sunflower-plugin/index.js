@@ -1,12 +1,14 @@
-const { fs, path, globby, datatypes: { isString }} = require('@vuepress/shared-utils');
+const { fs, path, globby } = require('@vuepress/shared-utils');
 const createMdxInVue = require('./tpl/mdxinvue');
 const watch = require('glob-watcher');
 const chalk = require('chalk');
+const getRemark = require('./utils/getRemark');
+const vfile = require('to-vfile');
 
 
-
-function generateMDFiles(dir) {
-  const wrapperedContent = createMdxInVue('name', dir);
+async function generateMDFiles(dir) {
+  const option = await getRemark(vfile.readSync(dir, 'utf-8'));
+  const wrapperedContent = createMdxInVue(option.name, dir);
   const targetDir = dir.replace('.mdx', '.md');
   fs.writeFileSync(targetDir, wrapperedContent);
   console.log(chalk.green(`[hint:mdx] ${targetDir} has changed, markdown is generated`));
@@ -17,16 +19,15 @@ async function resolveComponents (componentDir) {
     return
   }
   const components = await globby(['**/*.mdx'], { cwd: componentDir });
-  components.forEach(file => {
-    generateMDFiles(path.resolve(componentDir, file));
+  components.forEach((file) => {
+    const targetFilePath = path.resolve(componentDir, file);
+    generateMDFiles(targetFilePath);
   })
 }
-
 
 module.exports = (options, ctx) => {
   return {
      chainWebpack: require('./lib/webpack'),
-     enhanceAppFiles: require('./lib/enhanceAppFiles').bind(options),
      extendPageData: require('./lib/extendPageData'),
      extendCli(cli) {
        cli

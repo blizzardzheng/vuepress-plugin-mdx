@@ -1,6 +1,6 @@
 
 ---
-title: name
+title: sunflower-search-result
 ---
 <div ref="customRenderer"></div>
 

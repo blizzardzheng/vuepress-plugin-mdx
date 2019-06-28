@@ -1,12 +1,6 @@
-const { join, resolve } = require('path')
+const { join } = require('path')
 const { description } = require('../../package')
 const fs = require('fs');
-const util = require('util')
-const remarkDocz = require('remark-docz');
-const rehypeDocz = require('rehype-docz');
-const slug = require('rehype-slug');
-const frontmatter = require('remark-frontmatter');
-const root = fs.realpathSync(process.cwd());
 
 module.exports = {
   /**
@@ -101,60 +95,5 @@ module.exports = {
     '@alipay/vuepress-plugin-basement',
   ],
   configureWebpack(config) {
-    const configStr = JSON.stringify(config, null, 4);
-    fs.writeFileSync(resolve(__dirname, '../webpack'), (configStr), 'utf-8');
   },
-  // chainWebpack(config, isServer) {
-  //     if (!isServer) {
-  //       config.node.set('global', true);
-  //       config.module.rule('jsx-transform')
-  //       .test(/\.jsx/)
-  //       .use('babel2')
-  //         .loader('babel-loader')
-  //         .options({
-  //           "babelrc": false,
-  //           "configFile": false,
-  //           presets: [
-  //             [
-  //               "@babel/preset-react"
-  //             ]
-  //           ]
-  //         })
-  //         .end();
-  //       config.module.rule('mdx-transform')
-  //       .test(/\.mdx/)
-  //       .use('babel2')
-  //       .loader('babel-loader')
-  //       .options({
-  //         "babelrc": false,
-  //         "configFile": false,
-  //         presets: [
-  //           [
-  //             "@babel/preset-react"
-  //           ]
-  //         ],
-  //         "plugins": [
-  //           ["import", {
-  //             "libraryName": "antd",
-  //             "libraryDirectory": "es",
-  //             "style": "css" // `style: true` 会加载 less 文件
-  //           }]
-  //         ]
-  //       })
-  //       .end()
-  //       .use('mdx')
-  //         .loader('@mdx-js/loader')
-  //         .options({
-  //           remarkPlugins: [
-  //             [frontmatter, { type: 'yaml', marker: '-' }],
-  //             remarkDocz,
-  //           ],
-  //           rehypePlugins: [
-  //             [rehypeDocz, { root, useCodeSandbox: true }],
-  //             slug,
-  //           ],
-  //         })
-  //         .end()
-  //     }
-  // }
 }
