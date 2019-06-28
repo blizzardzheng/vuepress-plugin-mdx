@@ -1,6 +1,7 @@
 const { join } = require('path')
 const { description } = require('../../package')
 const fs = require('fs');
+const util = require('util');
 
 module.exports = {
   /**
@@ -31,7 +32,9 @@ module.exports = {
   stylus: {
     import: [join(__dirname, './styles/global.styl')]
   },
-
+  less: {
+    javascriptEnabled: true
+  },
   nav: [
     {
       text: '指南x',
@@ -91,9 +94,10 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    require('../../packages/sunflower-plugin'),
+    require('../../packages/vuepress-plugin-mdx'),
     '@alipay/vuepress-plugin-basement',
   ],
   configureWebpack(config) {
+    fs.writeFileSync('webpack', util.inspect(config, true, 10));
   },
 }

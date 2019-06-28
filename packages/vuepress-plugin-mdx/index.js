@@ -29,6 +29,9 @@ module.exports = (options, ctx) => {
   return {
      chainWebpack: require('./lib/webpack'),
      extendPageData: require('./lib/extendPageData'),
+     less: {
+      javascriptEnabled: true
+     },
      extendCli(cli) {
        cli
         .command('mdx [targetDir]', '')

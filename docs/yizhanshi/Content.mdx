@@ -1,8 +1,98 @@
-import { Playground } from 'docz';
+
+import { Playground } from 'docz'
+import { useFormTable } from '@sunflower-antd/form-table';
 import { Input, Button, Table } from 'antd';
 
 # 搜索表格
 
-## 基本
+## 案例
+<Playground>
+  {
+    () => {
+      const { Form, Table } = useFormTable({
+        search: (values) => values,
+        defaultPageSize: 5,
+      });
+      return <div>
+        <Form>
+          <Form.Item
+            label="Username"
+            name="username"
+          >
+            <Input placeholder="Username" />
+          </Form.Item>
 
-<Button>1</Button>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Search
+            </Button>
+          </Form.Item>
+        </Form>
+
+        <Table
+          columns={[
+            {
+              title: 'Username',
+              dataIndex: 'username',
+              key: 'username',
+            },
+            {
+              title: 'Email',
+              dataIndex: 'email',
+              key: 'email',
+            }
+          ]}
+          rowKey="id"
+          pagination={{
+            showQuickJumper: true,
+            showSizeChanger: true,
+            pageSizeOptions: ['5', '10', '20', '50'],
+          }}
+        />
+      </div>;
+    }
+  }
+</Playground>
+
+```jsx
+import { useFormTable } from '@sunflower-antd/form-table';
+
+function Component() {
+  const { Form, Table } = useFormTable({
+    search: (values) => request(values),
+    defaultPageSize: 5,
+  });
+  return <div>
+    <Form>
+      <Form.Item
+        label="Username"
+        name="username"
+      >
+        <Input placeholder="Username" />
+      </Form.Item>
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit">
+          Search
+        </Button>
+      </Form.Item>
+    </Form>
+
+    <Table
+      columns={[
+        {
+          title: 'Username',
+          dataIndex: 'username',
+          key: 'username',
+        },
+        {
+          title: 'Email',
+          dataIndex: 'email',
+          key: 'email',
+        }
+      ]}
+      rowKey="id"
+    />
+  </div>;
+}
+```

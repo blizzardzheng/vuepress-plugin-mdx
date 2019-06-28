@@ -23,6 +23,7 @@ function chainWebpack(config, isServer) {
         ]
       })
       .end();
+
     config.module.rule('mdx-transform')
     .test(/\.mdx/)
     .use('babel2')
