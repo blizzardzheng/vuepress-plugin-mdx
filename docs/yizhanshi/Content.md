@@ -10,7 +10,7 @@ title: sunflower-search-result
   import ReactDOM from "react-dom";
   import { Link, useConfig  } from 'docz';
   import Package from '@docz-mdx/index.jsx';
-  import Content from '/Users/caifeng.zxq/code/work/sunflower/docs/yizhanshi/Content.mdx';
+  import Content from './Content.mdx';
   export default {
     mounted() {
       ReactDOM.render(React.createElement(Package, {
