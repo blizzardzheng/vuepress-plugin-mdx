@@ -56,8 +56,7 @@ function chainWebpack(config, isServer) {
           slug,
         ],
       })
-      .end()
-    
+    .end()
   }
 }
 
