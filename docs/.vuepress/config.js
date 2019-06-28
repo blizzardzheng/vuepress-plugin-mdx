@@ -34,11 +34,11 @@ module.exports = {
 
   nav: [
     {
-      text: '指南',
+      text: '指南x',
       link: '/guide/',
     },
     {
-      text: '一站式流程组件',
+      text: '一站式流程组件x',
       link: '/yizhanshi/'
     },
   ],
@@ -58,7 +58,7 @@ module.exports = {
         link: '/guide/',
       },
       {
-        text: '一站式组件池',
+        text: '一站式模板',
         link: '/yizhanshi/'
       }
     ],
@@ -69,16 +69,16 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'using-vue',
+            'use'
           ]
         }
       ],
       '/yizhanshi/': [
         {
-          title: '指南',
+          title: '一站式模板',
           collapsable: false,
           children: [
-            'test'
+            'form-table'
           ]
         }
       ]

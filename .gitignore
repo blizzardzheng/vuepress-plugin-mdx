@@ -12,3 +12,5 @@ public
 config.local.js
 basement_dist
 webpack
+.docz
+yarn-error.log

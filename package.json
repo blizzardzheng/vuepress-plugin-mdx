@@ -25,6 +25,7 @@
   "dependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/polyfill": "^7.4.4",
+    "@sunflower-antd/form-table": "0.0.0-alpha.2",
     "antd": "^3.19.7",
     "babel-plugin-import": "^1.12.0",
     "docz": "^1.2.0",
@@ -34,5 +35,9 @@
     "react-dom": "^16.8.6",
     "rehype-slug": "^2.0.3"
   },
-  "__npminstall_done": false
+  "__npminstall_done": false,
+  "tnpm": {
+    "mode": "yarn",
+    "lockfile": "enable"
+  }
 }
