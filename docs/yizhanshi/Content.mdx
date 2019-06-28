@@ -1,6 +1,7 @@
 
 import { Playground } from 'docz'
 import { useFormTable } from '@sunflower-antd/form-table';
+import request from '../service/mock1';
 import { Input, Button, Table } from 'antd';
 
 # 搜索表格
@@ -10,7 +11,7 @@ import { Input, Button, Table } from 'antd';
   {
     () => {
       const { Form, Table } = useFormTable({
-        search: (values) => values,
+        search: (values) => request(values),
         defaultPageSize: 5,
       });
       return <div>
