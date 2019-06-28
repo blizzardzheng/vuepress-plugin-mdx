@@ -7,20 +7,28 @@ const vfile = require('to-vfile');
 
 
 async function generateMDFiles(dir) {
-  const option = await getRemark(vfile.readSync(dir, 'utf-8'));
-  const wrapperedContent = createMdxInVue(option.name, dir);
+  let option = {};
+  // try {
+  //   option = await getRemark(vfile.readSync(dir, 'utf-8'));
+  // } catch(e) {
+  //   console.log(e)
+  // }
+  const wrapperedContent = createMdxInVue(option.name || '', dir);
   const targetDir = dir.replace('.mdx', '.md');
   fs.writeFileSync(targetDir, wrapperedContent);
   console.log(chalk.green(`[hint:mdx] ${targetDir} has changed, markdown is generated`));
 }
 
 async function resolveComponents (componentDir) {
+  console.log('componentDir', componentDir);
   if (!fs.existsSync(componentDir)) {
+    console.log('in')
     return
   }
   const components = await globby(['**/*.mdx'], { cwd: componentDir });
   components.forEach((file) => {
     const targetFilePath = path.resolve(componentDir, file);
+    console.log('fff', targetFilePath);
     generateMDFiles(targetFilePath);
   })
 }
@@ -48,7 +56,7 @@ module.exports = (options, ctx) => {
               console.log(chalk.green(`[hint:mdx] ${path} has unlink, markdown is deleted`));
             });
           } else {
-            await resolveComponents(dir);
+            await resolveComponents(path.resolve(process.cwd(), dir));
           }
         })
      }

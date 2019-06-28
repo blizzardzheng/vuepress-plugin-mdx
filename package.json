@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs & vuepress mdx ./docs --dev",
-    "build": "vuepress build docs"
+    "build": "vuepress mdx ./docs && vuepress build docs"
   },
   "repository": {
     "type": "git",

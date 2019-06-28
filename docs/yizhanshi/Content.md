@@ -1,6 +1,6 @@
 
 ---
-title: sunflower
+title: 
 ---
 <div ref="customRenderer"></div>
 
