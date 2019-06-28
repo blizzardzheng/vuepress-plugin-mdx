@@ -45,7 +45,7 @@
             "@theme/layouts/404.vue": "/Users/caifeng.zxq/code/work/sunflower/node_modules/@vuepress/theme-default/layouts/404.vue",
             "@theme/layouts/Layout.vue": "/Users/caifeng.zxq/code/work/sunflower/node_modules/@vuepress/theme-default/layouts/Layout.vue",
             "@theme": "/Users/caifeng.zxq/code/work/sunflower/node_modules/@vuepress/theme-default",
-            "@docz-mdx": "/Users/caifeng.zxq/code/work/sunflower/sunflower-plugin/lib"
+            "@docz-mdx": "/Users/caifeng.zxq/code/work/sunflower/packages/sunflower-plugin/lib"
         },
         "extensions": [
             ".js",
@@ -1203,7 +1203,7 @@
             "definitions": {
                 "VUEPRESS_VERSION": "\"1.0.2\"",
                 "VUEPRESS_TEMP_PATH": "\"/Users/caifeng.zxq/code/work/sunflower/node_modules/@vuepress/core/.temp\"",
-                "LAST_COMMIT_HASH": "\"2e71f82\"",
+                "LAST_COMMIT_HASH": "\"56b8528\"",
                 "AHL_SIDEBAR_LINK_SELECTOR": "\".sidebar-link\"",
                 "AHL_HEADER_ANCHOR_SELECTOR": "\".header-anchor\"",
                 "SEARCH_MAX_SUGGESTIONS": "5",
@@ -1281,7 +1281,7 @@
         },
         {
             "options": {
-                "port": 8080,
+                "port": 8081,
                 "displayHost": "localhost",
                 "publicPath": "/"
             }
