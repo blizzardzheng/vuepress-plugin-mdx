@@ -1203,7 +1203,7 @@
             "definitions": {
                 "VUEPRESS_VERSION": "\"1.0.2\"",
                 "VUEPRESS_TEMP_PATH": "\"/Users/caifeng.zxq/code/work/sunflower/node_modules/@vuepress/core/.temp\"",
-                "LAST_COMMIT_HASH": "\"71b1ef7\"",
+                "LAST_COMMIT_HASH": "\"b5020f4\"",
                 "AHL_SIDEBAR_LINK_SELECTOR": "\".sidebar-link\"",
                 "AHL_HEADER_ANCHOR_SELECTOR": "\".header-anchor\"",
                 "SEARCH_MAX_SUGGESTIONS": "5",
@@ -1281,7 +1281,7 @@
         },
         {
             "options": {
-                "port": 8081,
+                "port": 8080,
                 "displayHost": "localhost",
                 "publicPath": "/"
             }
