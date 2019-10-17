@@ -8,11 +8,7 @@
     "dev": "vuepress dev docs & vuepress mdx ./docs --dev",
     "build": "vuepress mdx ./docs && vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.alipay-inc.com:fetest/fe_hook_test.git"
-  },
-  "author": "",
+  "author": "candy.zhengxq@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "@alipay/vuepress-plugin-basement": "latest",

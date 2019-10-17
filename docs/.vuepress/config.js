@@ -94,8 +94,7 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    require('../../packages/vuepress-plugin-mdx'),
-    '@alipay/vuepress-plugin-basement',
+    require('../../packages/vuepress-plugin-mdx')
   ],
   configureWebpack(config) {
     fs.writeFileSync('webpack', util.inspect(config, true, 10));
